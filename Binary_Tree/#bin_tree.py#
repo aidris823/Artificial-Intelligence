@@ -11,6 +11,7 @@ class Node:
 class BinTree:
     def __init__(self,A=None):
         self.root = None
+        
         if (A is not None):
             for i in range(len(A)):
                 insert(self,A[i])
