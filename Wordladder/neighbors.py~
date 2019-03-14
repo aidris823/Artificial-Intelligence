@@ -1,0 +1,12 @@
+#!/usr/bin/python3
+import sys
+file = open(sys.argv[1],"r")
+output = open(sys.argv[2],"w")
+
+words = file.read().split("\n")
+words.pop()
+
+print words
+
+file.close()
+output.close()
