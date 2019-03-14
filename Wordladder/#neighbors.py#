@@ -7,31 +7,29 @@ output = open(sys.argv[2],"w")
 words = fred.read().split("\n")
 words.pop()
 
-valid = set()
+swag = set()
 alphabet = list("abcdefghijklmnopqrstuvwxyz")
 
 all_words = word_list.read().split("\n")
 
 for word in all_words:
     if len(word) == 4:
-        valid.add(word)
+        swag.add(word)
 
 neighbors = dict()
 
 def find_neighbors(word):
     ans = list()
-    sec = list(word)
-    ls = sec[:]
+    sec = ls = list(word)
     for i in range(4):
-        ls = sec[:]
         for j in alphabet:
             ls[i] = j
             q = "".join(ls)
-            print(q)
-            if q in valid:
+            if q in swag:
                 ans.append(q)
     return ans
-print find_neighbors("head")
+
+#print find_neighbors("head")
     
     
 
