@@ -27,11 +27,18 @@ def find_neighbors(word):
         for j in alphabet:
             ls[i] = j
             q = "".join(ls)
-            print(q)
-            if q in valid:
+            if q != word and q in valid :
                 ans.append(q)
     return ans
-print find_neighbors("head")
+#print find_neighbors("head")
+for i in valid:
+    neighbors[i] = find_neighbors(i)
+
+for i in words:
+    fred_rogers = find_neighbors(i)
+    length = len(fred_rogers)
+    output.write(i + "," + str(length) + "\n")
+
     
     
 
