@@ -1,0 +1,8 @@
+#!/usr/bin/python3
+import sys
+
+mercury = open("dictall.txt","r")
+
+word = "horsecart"
+broken = list(word)
+print broken
