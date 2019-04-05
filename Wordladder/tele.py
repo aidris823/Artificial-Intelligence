@@ -27,11 +27,10 @@ def generate_numbers(word):
                 ans.append(j)
     for i in range(len(ans)):
         ans[i] = int(ans[i])
-    print ans
     _ans = list()
     for i in range(len(ans)):
-        _ans[i].append(int(ans[i]))
-    print _ans
+        _ans.append(str(ans[i]))
+    return ''.join(_ans)
 print "Barclay:"
 print generate_numbers("barclay")
             
