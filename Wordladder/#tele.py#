@@ -15,6 +15,11 @@ valid = set()
 for i in all_words:
     if len(i) == 5:
         valid.add(i)
+def word_breakup(numbers):
+    length = len(numbers)
+    for i in range(length):
+        comb = numbers.split(
+        
 def generate_words(numbers):
     ans = list()
     valid = set()
