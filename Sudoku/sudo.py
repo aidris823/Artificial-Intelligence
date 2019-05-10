@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-import sys
-import copy
+import sys, copy
 
 fred = open(sys.argv[1],'r')
 ans = open(sys.argv[2],'w')
@@ -105,7 +104,9 @@ def solve(board):
             board[coors[0]][coors[1]] = i
             #print board
             solve(board)
-answer = board
+
+answer = list()
+
 def solveSudo(board):
     pos = -1
     for i in range(0,9):
@@ -127,13 +128,14 @@ def solveSudo(board):
     return True
 
 solveSudo(board)
-print answer
-print "Backtracks:"
-
+print(answer)
 for i in answer:
     for j in i:
         ans.write(str(j))
         ans.write(",")
     ans.write("\n")
+    
+
+print("Backtracks")
 fred.close()
 ans.close()
