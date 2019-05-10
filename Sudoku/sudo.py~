@@ -93,6 +93,7 @@ def solve(board):
            #     print pos
                 if board[i][j] == '_':
                     coors = [i,j]
+                    print "\n END OF LOOP \n"
                     break
      #   print coors
     #    print pos

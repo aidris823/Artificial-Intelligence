@@ -71,6 +71,7 @@ def get_candidates(board,pos):
             ans.append(i)
     return ans
 
+#Returns whether that move is legal.
 #Base Case: Entire board is filled
 def is_filled(board):
     for i in board:
