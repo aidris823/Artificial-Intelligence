@@ -56,12 +56,10 @@ def get_candidates(board,pos):
         oned_board += i
     ans = list()
     taken = list()
-    print clique
 
     for i in range(1,10):
         for j in clique:
             x = clique[j]
-            print x
             for k in x:
                 for l in k:
                     if oned_board[l] != '_' and int(oned_board[l]) == i:
@@ -71,9 +69,8 @@ def get_candidates(board,pos):
         if i not in taken:
             ans.append(i)
     return ans
-for i in range(0,9):
-    if board[i][0] == '_':
-        print get_candidates(board,i)
+for i in range(0,80):
+    print get_candidates(board,i)
 
 #Base Case: Entire board is filled
 def is_filled(board):
