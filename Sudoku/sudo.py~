@@ -54,6 +54,7 @@ def get_candidates(board,pos):
     oned_board = list()
     for i in board:
         oned_board += i
+        
     ans = list()
     taken = list()
 
@@ -64,15 +65,11 @@ def get_candidates(board,pos):
                 for l in k:
                     if oned_board[l] != '_' and int(oned_board[l]) == i:
                         taken.append(i)
-                    if oned_board[l] == '_':
-                        return -1
     pos_ans = [1,2,3,4,5,6,7,8,9]
     for i in pos_ans:
         if i not in taken:
             ans.append(i)
     return ans
-for i in range(0,80):
-    print get_candidates(board,i)
 
 #Base Case: Entire board is filled
 def is_filled(board):
@@ -92,19 +89,19 @@ def solve(board):
         for i in range(9):
             for j in range(9):
                 pos += 1
+                print [i,j]
+           #     print pos
                 if board[i][j] == '_':
                     coors = [i,j]
                     break
-        #print coors
-        #print pos
+     #   print coors
+    #    print pos
         candidates = get_candidates(board,pos)
         #print candidates
         for i in candidates:
             board[coors[0]][coors[1]] = i
-            print board
             solve(board)
-            
-                        
-#print solve(board)
+                           
+print solve(board)
 fred.close()
 ans.close()
