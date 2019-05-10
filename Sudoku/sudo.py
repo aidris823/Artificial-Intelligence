@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-import sys, copy
+import sys
+import copy
 
 fred = open(sys.argv[1],'r')
 ans = open(sys.argv[2],'w')
@@ -54,7 +55,6 @@ def get_candidates(board,pos):
     oned_board = list()
     for i in board:
         oned_board += i
-        
     ans = list()
     taken = list()
 
@@ -70,8 +70,9 @@ def get_candidates(board,pos):
         if i not in taken:
             ans.append(i)
     return ans
+#for i in range(0,80):
+    #print get_candidates(board,i)
 
-#Returns whether that move is legal.
 #Base Case: Entire board is filled
 def is_filled(board):
     for i in board:
@@ -85,25 +86,54 @@ def solve(board):
     coors = [-1,-1]
     #Basecase
     if is_filled(board):
+        #print board
         return board
     else:
         for i in range(9):
             for j in range(9):
                 pos += 1
-                print [i,j]
-           #     print pos
                 if board[i][j] == '_':
                     coors = [i,j]
-                    print "\n END OF LOOP \n"
                     break
-     #   print coors
-    #    print pos
+            if coors != [-1,-1]:
+                break
+        #print coors
+        #print pos
         candidates = get_candidates(board,pos)
         #print candidates
         for i in candidates:
             board[coors[0]][coors[1]] = i
+            #print board
             solve(board)
-                           
-print solve(board)
+answer = board
+def solveSudo(board):
+    pos = -1
+    for i in range(0,9):
+        for j in range(0,9):
+            pos+=1
+            if board[i][j] == '_':
+        #        print pos
+                candidates = get_candidates(board,pos)
+         #       print [i,j]
+          #      print candidates
+                for k in candidates:
+                    board[i][j] = k
+                    if solveSudo(board):
+                        answer = board
+                        return True
+                    else:
+                        board[i][j] = '_'
+                return False
+    return True
+
+solveSudo(board)
+print answer
+print "Backtracks:"
+
+for i in answer:
+    for j in i:
+        ans.write(str(j))
+        ans.write(",")
+    ans.write("\n")
 fred.close()
 ans.close()
