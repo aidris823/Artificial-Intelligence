@@ -134,11 +134,9 @@ solveSudo(board)
 
 
 for i in answer:
-    line = ""
     for j in i:
-        line += str(j)
-        line += ','
-    ans.write(line[:-3])
+        ans.write(str(j))
+        ans.write(",")
     ans.write("\n")
 fred.close()
 ans.close()
