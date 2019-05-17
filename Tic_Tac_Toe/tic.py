@@ -39,6 +39,7 @@ def calc_games(board, counter = 0, p1_turn = True):
   
 
 print calc_games(board)
+print board
     
                 
     
